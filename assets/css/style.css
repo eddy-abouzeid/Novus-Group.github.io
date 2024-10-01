@@ -196,6 +196,10 @@ img {
     display: flex;
     justify-content: center;
 }
+
+.embed-responsive{
+    margin-left: 30px !important;
+}
 /*=======================================================
   1. Default Styles
 ========================================================*/
@@ -1875,11 +1879,11 @@ hr {
 }
 
 .u-header--sticky-top, .u-header--sticky-bottom {
-    position: fixed;
+    position: fixed !important;
 }
 
 .u-header--sticky-top {
-    display: contents;
+    /* display: contents; */
     bottom: auto;
     top: 0;
 }
@@ -5445,9 +5449,9 @@ body[class*="u-body--header-side"].u-body--header-side-opened .u-header__overlay
 }
 
 .u-btn-outline-white {
-    color: #fff;
-    border-color: #fff;
-    background-color: transparent;
+    color: #000000;
+    /* border-color: #29CEB6; */
+    background-color: #29CEB6;
 }
 
 .u-btn-outline-white:focus, .u-btn-outline-white.active {
@@ -28895,7 +28899,7 @@ pre[class*="language-"] .toolbar-item a {
 }
 
 .g-bg-primary-dark-v3 {
-    background-color: #29CEB6 !important;
+    background-color: #101010 !important;
 }
 
 .g-bg-primary-opacity-0_1 {
@@ -35184,7 +35188,7 @@ svg.g-transition--linear polygon {
 }
 
 .g-color-white {
-    color: #000000 !important;
+    color: #fff !important;
 }
 
 .g-color-white--opened-menu:not(.collapsed) {
@@ -35324,8 +35328,8 @@ svg.g-transition--linear polygon {
 }
 
 .g-color-gray-dark-v3 {
-    background-color: #ffffff;
-    color: #000000 !important;
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    color: #fff !important;
 }
 
 .g-color-gray-dark-v3--hover:hover {
