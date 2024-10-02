@@ -204,6 +204,10 @@ img {
 .section2{
     margin-left: 90px !important;
 }
+
+.currency-wrapper{
+    display: flex !important;
+}
 /*=======================================================
   1. Default Styles
 ========================================================*/
