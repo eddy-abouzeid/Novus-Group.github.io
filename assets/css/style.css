@@ -137,6 +137,8 @@
 /* ======================================================
 Eddy's Changes & Edits 
 ========================================================*/
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////// TO NOTE: add div{max-width:100%; to solve responsive pages} ////////////////////////////////////////////////////////////////////////////////// */
 img {
     /* width: 100px; */
     vertical-align: middle;
@@ -174,9 +176,9 @@ img {
     display: none;
 }
 
-.slick-slide[data-slick-index="3"] {
+/* .slick-slide[data-slick-index="3"] {
     display: none;
-}
+} */
 
 .text-center-carousel{
     padding: 75px 75px 15px 75px !important;
@@ -211,10 +213,9 @@ img {
 /*=======================================================
   1. Default Styles
 ========================================================*/
-img {
+img,div{
     max-width: 100%;
 }
-
 
 html {
     font-size: 14px;
@@ -12612,7 +12613,7 @@ input[type="radio"]:checked + * .g-show-check {
 
 .u-carousel-indicators-v1 li,
 .u-carousel-indicators-v1--white li {
-    margin: 0 5px;
+    margin: 40px 5px;
 }
 
 .u-carousel-indicators-v1 li.slick-active span,
@@ -44204,7 +44205,8 @@ svg.g-transition--linear polygon {
     }
 
     .g-ml-minus-100--lg {
-        margin-left: -7.14286rem;
+        margin-right: -12.14286rem;
+        margin-left: -9.14286rem;
     }
 
     .g-ml-minus-100 {
