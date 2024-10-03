@@ -186,7 +186,7 @@ img {
 
 .no-gutters {
     display: flex;
-    width: 1180px;
+    width: 885px;
     margin-right: 0px;
     margin-left: 0;
     flex-wrap: nowrap;
@@ -28141,7 +28141,7 @@ pre[class*="language-"] .toolbar-item a {
 
 .js-carousel .js-next,
 .js-carousel .js-prev {
-    opacity: 0;
+    opacity: 1;
 }
 
 .js-carousel.slick-initialized {
