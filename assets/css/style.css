@@ -210,6 +210,21 @@ img {
 .currency-wrapper{
     display: flex !important;
 }
+
+.no-gutters-1{
+    display: flex;
+    width: 920px;
+    margin-right: 0px;
+    margin-left: 140px;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.text-acc{
+    line-height: 50px;
+    font-size: 20px;
+}
 /*=======================================================
   1. Default Styles
 ========================================================*/
