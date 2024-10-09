@@ -22,7 +22,7 @@
 <body>
 <main>
 <!-- Start Page Preloader -->
-<div id="loading">
+<!-- <div id="loading">
     <div id="loading-center">
         <div id="loading-center-absolute">
             <div class="object" id="object_four"></div>
@@ -31,8 +31,43 @@
             <div class="object" id="object_one"></div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- End Page Preloader -->
+
+<!-- Start Page Preloader -->
+<div id="loading">
+    <div id="loading-center">
+        <video id="preloader-video" autoplay muted loop>
+            <source src="assets/preloader-animation-logo/Page-loader-novus_1.webm" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</div>
+
+<script>
+    window.addEventListener('load', function() {
+        var loader = document.getElementById('loading');
+        var video = document.getElementById('preloader-video');
+        
+        // Listen for the video's "canplaythrough" event to ensure it is ready
+        video.addEventListener('canplaythrough', function() {
+            // Add a delay before starting to fade out the loader (e.g., 3 seconds)
+            setTimeout(function() {
+                loader.style.transition = 'opacity 0.5s ease';
+                loader.style.opacity = 0;
+
+                // After the fade-out, completely hide the loader
+                setTimeout(function() {
+                    loader.style.display = 'none';
+                }, 8500); // Wait for the fade-out transition before removing the preloader
+            }, 1000); // Prolong the animation by 3 seconds (adjust as needed)
+        });
+    });
+</script>
+
+<!-- End Page Preloader -->
+
+
 <!-- Start Header -->
 <header id="js-header" class="u-header u-header--sticky-top u-header--toggle-section u-header--change-appearance dark-header" data-header-fix-moment="300">
     <div class="u-header__section u-header__section--dark g-bg-black g-transition-0_3 g-py-10" data-header-fix-moment-exclude="g-py-10" data-header-fix-moment-classes="u-shadow-v18 g-py-0">
