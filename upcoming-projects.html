@@ -21,18 +21,40 @@
 </head>
 <body>
 <main>
-    <!-- Start Page Preloader -->
-    <div id="loading">
-        <div id="loading-center">
-            <div id="loading-center-absolute">
-                <div class="object" id="object_four"></div>
-                <div class="object" id="object_three"></div>
-                <div class="object" id="object_two"></div>
-                <div class="object" id="object_one"></div>
-            </div>
-        </div>
+
+<!-- Start Page Preloader -->
+<div id="loading">
+    <div id="loading-center">
+        <video id="preloader-video" autoplay muted loop>
+            <source src="assets/preloader-animation-logo/page-loader.webm" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
     </div>
-    <!-- End Page Preloader -->
+</div>
+
+<script>
+    window.addEventListener('load', function() {
+        var loader = document.getElementById('loading');
+        var video = document.getElementById('preloader-video');
+        
+        // Listen for the video's "canplaythrough" event to ensure it is ready
+        video.addEventListener('canplaythrough', function() {
+            // Add a delay before starting to fade out the loader (e.g., 3 seconds)
+            setTimeout(function() {
+                loader.style.transition = 'opacity 0.5s ease';
+                loader.style.opacity = 0;
+
+                // After the fade-out, completely hide the loader
+                setTimeout(function() {
+                    loader.style.display = 'none';
+                }, 3500); // Wait for the fade-out transition before removing the preloader
+            }, 3000); // Prolong the animation by 3 seconds (adjust as needed)
+        });
+    });
+</script>
+
+<!-- End Page Preloader -->
+
 <!-- Start Header -->
 <header id="js-header" class="u-header u-header--sticky-top u-header--toggle-section u-header--change-appearance dark-header" data-header-fix-moment="300">
     <div class="u-header__section u-header__section--dark g-bg-black g-transition-0_3 g-py-10" data-header-fix-moment-exclude="g-py-10" data-header-fix-moment-classes="u-shadow-v18 g-py-0">
@@ -62,7 +84,7 @@
                             <a href="#" data-target="#aboutus" class="nav-link px-0">About Us</a>
                         </li>
                         <li class="nav-item g-mx-15--lg">
-                            <a href="pages-services-1.html" data-target="#services" class="nav-link px-0">Services</a>
+                            <a href="services-page.html" data-target="#services" class="nav-link px-0">Services</a>
                         </li>
                         <li class="nav-item g-mx-15--lg">
                             <a href="how-we-do-it.html" data-target="#projects" class="nav-link px-0">How we do it</a>
@@ -73,14 +95,14 @@
                         <li class="nav-item g-mx-15--lg">
                             <a href="upcoming-projects.html" data-target="#statistics" class="nav-link px-0">Upcoming Projects</a>
                         </li>
-                        <!-- <li class="nav-item g-mx-15--lg">
-                            <a href="#" data-target="#news" class="nav-link px-0">News</a>
-                        </li> -->
+                        <li class="nav-item g-mx-15--lg">
+                            <a href="login-page.html" data-target="#news" class="nav-link px-0">Login</a>
+                        </li>
                     </ul>
                 </div>
                 <!-- End Navigation -->
                 <div class="d-inline-block g-hidden-md-down g-pos-rel g-valign-middle g-pl-15">
-                    <a class="btn u-btn-outline-white g-font-size-13 text-uppercase g-py-10 g-px-15" href="https://www.templatemonster.com/authors/gworld" >Buy now</a>
+                    <a class="btn u-btn-outline-white g-font-size-13 text-uppercase g-py-10 g-px-15" href="https://www.templatemonster.com/authors/gworld" >Invest now</a>
                 </div>
             </div>
         </nav>
@@ -88,9 +110,38 @@
 </header>
 <!-- End Header -->
 
-<section class="g-pt-175 g-pb-45">
+<!-- Start Page Title -->
+<section class="dzsparallaxer auto-init height-is-based-on-content use-loading mode-scroll loaded dzsprx-readyall" data-options="{direction: 'reverse', settings_mode_oneelement_max_offset: '150'}">
+    <!-- Start Parallax Image -->
+    <div class="g-page-title-parallax divimage dzsparallaxer--target w-100 g-bg-repeat g-bg-gray-light-v4"></div>
+    <!-- End Parallax Image -->
+    <div class="container g-z-index-1 g-py-50 g-mt-75">
+        <h1 class="g-font-weight-300 g-letter-spacing-1 g-mb-2">Upcoming Projects</h1>
+        <div class="lead g-font-weight-400 g-line-height-2 g-letter-spacing-0_5">
+            <p class="mb-0 g-font-size-16">Use our unique & multi usable Elements</p>
+            <!-- Start Breadcrumbs -->
+            <ul class="u-list-inline g-font-size-16">
+                <li class="list-inline-item g-mr-7">
+                    <a class="u-link-v5 g-color-main" href="index.html">Home</a>
+                    <i class="fa fa-angle-right g-ml-7"></i>
+                </li>
+                <!-- <li class="list-inline-item g-mr-7">
+                    <a class="u-link-v5 g-color-main" href="pages-services-1.html">Services</a>
+                    <i class="fa fa-angle-right g-ml-7"></i>
+                </li> -->
+                <li class="list-inline-item g-color-primary">
+                    <span>Upcoming Projects</span>
+                </li>
+            </ul>
+            <!-- End Breadcrumbs -->
+        </div>
+    </div>
+</section>
+<!-- End Page Title -->
+
+<section class="g-pt-50 g-pb-45">
     <div class="container">
-        <div class="row">
+        <div class="row-align">
             <div class="col-md-4 g-mb-30">
                 <article class="text-center u-block-hover u-block-hover__additional--jump g-brd-around g-bg-gray-light-v5 g-brd-gray-light-v4 g-color-gray-dark-v5">
                     <header class="g-bg-primary g-color-white-opacity-0_7 g-pa-15">
@@ -99,11 +150,11 @@
                     </header>
                     <img class="w-100" src="assets/img-temp/900x600/img3.jpg" alt="Gravity">
                     <div class="g-pa-30">
-                        <div class="g-mb-15">
+                        <!-- <div class="g-mb-15">
                             From <strong class="d-block g-color-primary g-font-size-24 g-mt-5">$149.99</strong>
-                        </div>
+                        </div> -->
                         <p class="g-mb-30">I am alone, and feel the charm of existence in this spot, which was created ...</p>
-                        <a class="btn text-uppercase u-btn-primary g-rounded-50 g-font-size-12 g-font-weight-700 g-pa-15-30" href="#">Order Now</a>
+                        <a class="btn text-uppercase u-btn-primary g-rounded-50 g-font-size-12 g-font-weight-700 g-pa-15-30" href="#accordion-body-01" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="accordion-body-01">Learn Now</a>
                     </div>
                 </article>
             </div>
@@ -115,11 +166,11 @@
                     </header>
                     <img class="w-100" src="assets/img-temp/900x600/img2.jpg" alt="Gravity">
                     <div class="g-pa-30">
-                        <div class="g-mb-15">
+                        <!-- <div class="g-mb-15">
                             From <strong class="d-block g-color-primary g-font-size-24 g-mt-5">$199.99</strong>
-                        </div>
+                        </div> -->
                         <p class="g-mb-30">I am alone, and feel the charm of existence in this spot, which was created ...</p>
-                        <a class="btn text-uppercase u-btn-primary g-rounded-50 g-font-size-12 g-font-weight-700 g-pa-15-30" href="#">Order Now</a>
+                        <a class="btn text-uppercase u-btn-primary g-rounded-50 g-font-size-12 g-font-weight-700 g-pa-15-30" href="#accordion-body-02" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="accordion-body-02">Learn Now</a>
                     </div>
                 </article>
             </div>
@@ -131,11 +182,11 @@
                     </header>
                     <img class="w-100" src="assets/img-temp/900x600/img7.jpg" alt="Gravity">
                     <div class="g-pa-30">
-                        <div class="g-mb-15">
+                        <!-- <div class="g-mb-15">
                             From <strong class="d-block g-color-primary g-font-size-24 g-mt-5">$299.99</strong>
-                        </div>
+                        </div> -->
                         <p class="g-mb-30">I am alone, and feel the charm of existence in this spot, which was created ...</p>
-                        <a class="btn text-uppercase u-btn-primary g-rounded-50 g-font-size-12 g-font-weight-700 g-pa-15-30" href="#">Order Now</a>
+                        <a class="btn text-uppercase u-btn-primary g-rounded-50 g-font-size-12 g-font-weight-700 g-pa-15-30" href="#accordion-body-03" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="accordion-body-03">Learn Now</a>
                     </div>
                 </article>
             </div>
@@ -143,179 +194,597 @@
     </div>
 </section>
 
+<!-- Test Accordion -->
+<section class="g-bg-gray-gradient-opacity-v1">
+    <div class="container g-pt-5 g-pb-50">
+        <div class="row-align">
+            <div class="col-lg-10">
+                <div class="text-center g-mb-20">
+                    <div class="d-inline-block g-width-35 g-height-1 g-bg-primary mb-2"></div>
+                    <!-- <h2 class="g-color-black g-font-weight-600 mb-2">Frequently Asked Questions</h2> -->
+                    <!-- <p class="lead g-width-60x--md mx-auto">I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.</p> -->
+                </div>
+                <div id="accordion" class="u-accordion u-accordion-color-primary" role="tablist" aria-multiselectable="true">
+                    <div class="card g-brd-none rounded g-mb-20">
+                        <div id="accordion-heading-01" class="g-pa-0" role="tab">
+                            <h5 class="mb-0">
+                                <a class="d-flex justify-content-between u-shadow-v19 g-color-main g-text-underline--none--hover rounded g-px-30 g-py-20 collapsed" href="#accordion-body-01" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="accordion-body-01">
+                                    Starter - Plan for business
+                                    <span class="u-accordion__control-icon g-color-primary">
+                                        <i class="fa fa-angle-down"></i>
+                                        <i class="fa fa-angle-up"></i>
+                                    </span>
+                                </a>
+                            </h5>
+                        </div>
+                        <div id="accordion-body-01" class="collapse" role="tabpanel" aria-labelledby="accordion-heading-01" data-parent="#accordion">
+                            <div class="u-accordion__body g-color-gray-dark-v4 g-pa-30">
+                                <!-- Start Profile -->
+                                <section class="g-pt-75 g-pb-45">
+                                    <div class="container">
+                                        <figure class="row">
+                                            <div class="col-lg-4 g-mb-30">
+                                                <img class="w-100" src="assets/img-temp/400x450/img2.jpg" alt="Gravity">
+                                            </div>
+                                            <div class="col-lg-8 g-pt-20" style="padding: 0px 50px 0px 0px;">
+                                                <div class="d-flex justify-content-between g-mb-10">
+                                                    <div class="g-mb-20">
+                                                        <h4 class="h5 g-mb-5">Maria Brown</h4>
+                                                        <em class="d-block g-font-style-normal g-font-size-default text-uppercase g-color-primary">Technical Director</em>
+                                                    </div>
+                                                    <ul class="list-inline">
+                                                        <li class="list-inline-item g-mx-2">
+                                                            <a class="u-icon-v3 u-icon-size--xs g-color-gray-light-v1 g-bg-gray-light-v5 g-color-white--hover g-bg-primary--hover rounded-circle" href="#">
+                                                                <i class="fa fa-facebook"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-inline-item g-mx-2">
+                                                            <a class="u-icon-v3 u-icon-size--xs g-color-gray-light-v1 g-bg-gray-light-v5 g-color-white--hover g-bg-primary--hover rounded-circle" href="#">
+                                                                <i class="fa fa-twitter"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-inline-item g-mx-2">
+                                                            <a class="u-icon-v3 u-icon-size--xs g-color-gray-light-v1 g-bg-gray-light-v5 g-color-white--hover g-bg-primary--hover rounded-circle" href="#">
+                                                                <i class="fa fa-linkedin"></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="g-mb-30">
+                                                    <p>I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.</p>
+                                                    <p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents, which was created for the bliss of souls like mine.</p>
+                                                    <p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents, which was created for the bliss of souls like mine ...</p>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <h4 class="h6 g-mb-5">Web Design - 80%</h4>
+                                                        <div class="js-hr-progress-bar progress rounded-0 g-height-4 mb-5">
+                                                            <div class="js-hr-progress-bar-indicator progress-bar u-progress-bar-width-80x" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                        <h4 class="h6 g-mb-5">WordPress Codding - 70%</h4>
+                                                        <div class="js-hr-progress-bar progress rounded-0 g-height-4 mb-5">
+                                                            <div class="js-hr-progress-bar-indicator progress-bar u-progress-bar-width-70x" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <h4 class="h6 g-mb-5">JavaScript - 80%</h4>
+                                                        <div class="js-hr-progress-bar progress rounded-0 g-height-4 mb-5">
+                                                            <div class="js-hr-progress-bar-indicator progress-bar u-progress-bar-width-80x" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                        <h4 class="h6 g-mb-5">PHP Development - 60%</h4>
+                                                        <div class="js-hr-progress-bar progress rounded-0 g-height-4 mb-5">
+                                                            <div class="js-hr-progress-bar-indicator progress-bar u-progress-bar-width-60x" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </figure>
+                                    </div>
+                                </section>
+                                <!-- End Profile -->
 
-<!-- Start Profile -->
-<section class="g-pt-75 g-pb-45">
-    <div class="container">
-        <figure class="row">
-            <div class="col-lg-4 g-mb-30">
-                <img class="w-100" src="assets/img-temp/400x450/img2.jpg" alt="Gravity">
-            </div>
-            <div class="col-lg-8 g-pt-20" style="padding: 0px 50px 0px 0px;">
-                <div class="d-flex justify-content-between g-mb-10">
-                    <div class="g-mb-20">
-                        <h4 class="h5 g-mb-5">Maria Brown</h4>
-                        <em class="d-block g-font-style-normal g-font-size-default text-uppercase g-color-primary">Technical Director</em>
+
+
+
+                                <!-- Start Icons Blocks -->
+                                <section id="content" class="g-bg-secondary g-pt-75 g-pb-45">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-4 g-mt-30 g-mb-30">
+                                                <div class="u-shadow-v19 g-bg-white text-center g-rounded-5 g-px-30 g-pb-30">
+                                                    <span class="u-icon-v3 g-bg-primary g-color-white g-pull-50x-up g-rounded-5 g-mb-0">
+                                                        <i class="icon-education-087 u-line-icon-pro"></i>
+                                                    </span>
+                                                    <h3 class="h5 g-color-black g-mt-minus-10 g-mb-10">Modern Design</h3>
+                                                    <p class="g-color-gray-dark-v4 g-mb-10">I am alone, and feel the charm of existence in this spot, which was created ...</p>
+                                                    <a class="g-font-weight-600 g-font-size-12 g-text-underline--none--hover text-uppercase" href="#">Read More</a>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 g-mt-30 g-mb-30">
+                                                <div class="u-shadow-v19 g-bg-white text-center g-rounded-5 g-px-30 g-pb-30">
+                                                    <span class="u-icon-v3 g-bg-primary g-color-white g-pull-50x-up g-rounded-5 g-mb-0">
+                                                        <i class="icon-finance-009 u-line-icon-pro"></i>
+                                                    </span>
+                                                    <h3 class="h5 g-color-black g-mt-minus-10 g-mb-10">Fully Responsive</h3>
+                                                    <p class="g-color-gray-dark-v4 g-mb-10">I am alone, and feel the charm of existence in this spot, which was created ...</p>
+                                                    <a class="g-font-weight-600 g-font-size-12 g-text-underline--none--hover text-uppercase" href="#">Read More</a>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 g-mt-30 g-mb-30">
+                                                <div class="u-shadow-v19 g-bg-white text-center g-rounded-5 g-px-30 g-pb-30">
+                                                    <span class="u-icon-v3 g-bg-primary g-color-white g-pull-50x-up g-rounded-5 g-mb-0">
+                                                        <i class="icon-finance-256 u-line-icon-pro"></i>
+                                                    </span>
+                                                    <h3 class="h5 g-color-black g-mt-minus-10 g-mb-10">Friendly Support</h3>
+                                                    <p class="g-color-gray-dark-v4 g-mb-10">I am alone, and feel the charm of existence in this spot, which was created ...</p>
+                                                    <a class="g-font-weight-600 g-font-size-12 g-text-underline--none--hover text-uppercase" href="#">Read More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <!-- End Icons Blocks -->
+
+
+                                <!-- Start About Content -->
+                                <section class="container g-pt-75 g-pb-30">
+                                    <div class="row justify-content-center g-mb-20">
+                                        <div class="col-lg-7">
+                                            <!-- Start Heading -->
+                                            <div class="text-center">
+                                                <h2 class="h3 g-color-black text-uppercase g-mt-minus-5 mb-2">What we are doing</h2>
+                                                <div class="d-inline-block g-width-35 g-height-2 g-bg-primary mb-2"></div>
+                                                <p class="lead mb-0">I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend.</p>
+                                            </div>
+                                            <!-- End Heading -->
+                                        </div>
+                                    </div>
+                                    <div class="row g-mb-30">
+                                        <div class="col-lg-6 g-mb-30">
+                                            <div class="g-mb-20">
+                                                <p class="g-mb-0">I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I am alone, and feel the charm of existence in this spot.</p>
+                                                <p>I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I am alone, and feel the charm of existence in this spot ...</p>
+                                            </div>
+                                            <a class="btn btn-md u-btn-outline-black g-font-size-default rounded-0 g-py-10 mr-2" href="#">Explore More</a>
+                                            <a class="btn btn-md u-btn-primary g-font-size-default rounded-0 g-py-10" href="https://www.templatemonster.com/authors/gworld">Purchase Now</a>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <!-- Start Vertical Progress Bar -->
+                                                <div class="col-sm-3 text-center g-mb-20 g-mb-2--sm">
+                                                    <div class="js-vr-progress-bar u-progress-bar-vertical-v1 g-bg-gray-light-v4 g-mb-10">
+                                                        <div class="js-vr-progress-bar-indicator g-bg-primary g-height-150"></div>
+                                                    </div>
+                                                    <div class="g-color-black g-font-size-13 mb-1">75%</div>
+                                                    <h4 class="g-color-black g-font-size-18 text-uppercase">Design</h4>
+                                                </div>
+                                                <!-- End Vertical Progress Bar -->
+                                                <!-- Start Vertical Progress Bar -->
+                                                <div class="col-sm-3 text-center g-mb-20 g-mb-2--sm">
+                                                    <div class="js-vr-progress-bar u-progress-bar-vertical-v1 g-bg-gray-light-v4 g-mb-10">
+                                                        <div class="js-vr-progress-bar-indicator g-bg-primary g-height-120"></div>
+                                                    </div>
+                                                    <div class="g-color-black g-font-size-13 mb-1">60%</div>
+                                                    <h4 class="g-color-black g-font-size-18 text-uppercase">Bootstrap</h4>
+                                                </div>
+                                                <!-- End Vertical Progress Bar -->
+                                                <!-- Start Vertical Progress Bar -->
+                                                <div class="col-sm-3 text-center g-mb-20 g-mb-2--sm">
+                                                    <div class="js-vr-progress-bar u-progress-bar-vertical-v1 g-bg-gray-light-v4 g-mb-10">
+                                                        <div class="js-vr-progress-bar-indicator g-bg-primary g-height-160"></div>
+                                                    </div>
+                                                    <div class="g-color-black g-font-size-13 mb-1">80%</div>
+                                                    <h4 class="g-color-black g-font-size-18 text-uppercase">WordPress</h4>
+                                                </div>
+                                                <!-- End Vertical Progress Bar -->
+                                                <!-- Start Vertical Progress Bar -->
+                                                <div class="col-sm-3 text-center g-mb-20 g-mb-2--sm">
+                                                    <div class="js-vr-progress-bar u-progress-bar-vertical-v1 g-bg-gray-light-v4 g-mb-10">
+                                                        <div class="js-vr-progress-bar-indicator g-bg-primary g-height-100"></div>
+                                                    </div>
+                                                    <div class="g-color-black g-font-size-13 mb-1">50%</div>
+                                                    <h4 class="g-color-black g-font-size-18 text-uppercase">Laravel</h4>
+                                                </div>
+                                                <!-- End Vertical Progress Bar -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <!-- End About Content -->
+
+                            </div>
+                        </div>
                     </div>
-                    <ul class="list-inline">
-                        <li class="list-inline-item g-mx-2">
-                            <a class="u-icon-v3 u-icon-size--xs g-color-gray-light-v1 g-bg-gray-light-v5 g-color-white--hover g-bg-primary--hover rounded-circle" href="#">
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item g-mx-2">
-                            <a class="u-icon-v3 u-icon-size--xs g-color-gray-light-v1 g-bg-gray-light-v5 g-color-white--hover g-bg-primary--hover rounded-circle" href="#">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item g-mx-2">
-                            <a class="u-icon-v3 u-icon-size--xs g-color-gray-light-v1 g-bg-gray-light-v5 g-color-white--hover g-bg-primary--hover rounded-circle" href="#">
-                                <i class="fa fa-linkedin"></i>
-                            </a>
-                        </li>
-                    </ul>
                 </div>
-                <div class="g-mb-30">
-                    <p>I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.</p>
-                    <p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents, which was created for the bliss of souls like mine.</p>
-                    <p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents, which was created for the bliss of souls like mine ...</p>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <h4 class="h6 g-mb-5">Web Design - 80%</h4>
-                        <div class="js-hr-progress-bar progress rounded-0 g-height-4 mb-5">
-                            <div class="js-hr-progress-bar-indicator progress-bar u-progress-bar-width-80x" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                <div id="accordion" class="u-accordion u-accordion-color-primary" role="tablist" aria-multiselectable="true">
+                    <div class="card g-brd-none rounded g-mb-20">
+                        <div id="accordion-heading-02" class="g-pa-0" role="tab">
+                            <h5 class="mb-0">
+                                <a class="d-flex justify-content-between u-shadow-v19 g-color-main g-text-underline--none--hover rounded g-px-30 g-py-20 collapsed" href="#accordion-body-02" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="accordion-body-02">
+                                    Advanced - Plan for business
+                                    <span class="u-accordion__control-icon g-color-primary">
+                                        <i class="fa fa-angle-down"></i>
+                                        <i class="fa fa-angle-up"></i>
+                                    </span>
+                                </a>
+                            </h5>
                         </div>
-                        <h4 class="h6 g-mb-5">WordPress Codding - 70%</h4>
-                        <div class="js-hr-progress-bar progress rounded-0 g-height-4 mb-5">
-                            <div class="js-hr-progress-bar-indicator progress-bar u-progress-bar-width-70x" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div id="accordion-body-02" class="collapse" role="tabpanel" aria-labelledby="accordion-heading-02" data-parent="#accordion">
+                            <div class="u-accordion__body g-color-gray-dark-v4 g-pa-30">
+                                <!-- Start Profile -->
+                                <section class="g-pt-75 g-pb-45">
+                                    <div class="container">
+                                        <figure class="row">
+                                            <div class="col-lg-4 g-mb-30">
+                                                <img class="w-100" src="assets/img-temp/400x450/img2.jpg" alt="Gravity">
+                                            </div>
+                                            <div class="col-lg-8 g-pt-20" style="padding: 0px 50px 0px 0px;">
+                                                <div class="d-flex justify-content-between g-mb-10">
+                                                    <div class="g-mb-20">
+                                                        <h4 class="h5 g-mb-5">Maria Brown</h4>
+                                                        <em class="d-block g-font-style-normal g-font-size-default text-uppercase g-color-primary">Technical Director</em>
+                                                    </div>
+                                                    <ul class="list-inline">
+                                                        <li class="list-inline-item g-mx-2">
+                                                            <a class="u-icon-v3 u-icon-size--xs g-color-gray-light-v1 g-bg-gray-light-v5 g-color-white--hover g-bg-primary--hover rounded-circle" href="#">
+                                                                <i class="fa fa-facebook"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-inline-item g-mx-2">
+                                                            <a class="u-icon-v3 u-icon-size--xs g-color-gray-light-v1 g-bg-gray-light-v5 g-color-white--hover g-bg-primary--hover rounded-circle" href="#">
+                                                                <i class="fa fa-twitter"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-inline-item g-mx-2">
+                                                            <a class="u-icon-v3 u-icon-size--xs g-color-gray-light-v1 g-bg-gray-light-v5 g-color-white--hover g-bg-primary--hover rounded-circle" href="#">
+                                                                <i class="fa fa-linkedin"></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="g-mb-30">
+                                                    <p>I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.</p>
+                                                    <p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents, which was created for the bliss of souls like mine.</p>
+                                                    <p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents, which was created for the bliss of souls like mine ...</p>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <h4 class="h6 g-mb-5">Web Design - 80%</h4>
+                                                        <div class="js-hr-progress-bar progress rounded-0 g-height-4 mb-5">
+                                                            <div class="js-hr-progress-bar-indicator progress-bar u-progress-bar-width-80x" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                        <h4 class="h6 g-mb-5">WordPress Codding - 70%</h4>
+                                                        <div class="js-hr-progress-bar progress rounded-0 g-height-4 mb-5">
+                                                            <div class="js-hr-progress-bar-indicator progress-bar u-progress-bar-width-70x" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <h4 class="h6 g-mb-5">JavaScript - 80%</h4>
+                                                        <div class="js-hr-progress-bar progress rounded-0 g-height-4 mb-5">
+                                                            <div class="js-hr-progress-bar-indicator progress-bar u-progress-bar-width-80x" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                        <h4 class="h6 g-mb-5">PHP Development - 60%</h4>
+                                                        <div class="js-hr-progress-bar progress rounded-0 g-height-4 mb-5">
+                                                            <div class="js-hr-progress-bar-indicator progress-bar u-progress-bar-width-60x" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </figure>
+                                    </div>
+                                </section>
+                                <!-- End Profile -->
+
+
+
+
+                                <!-- Start Icons Blocks -->
+                                <section id="content" class="g-bg-secondary g-pt-75 g-pb-45">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-4 g-mt-30 g-mb-30">
+                                                <div class="u-shadow-v19 g-bg-white text-center g-rounded-5 g-px-30 g-pb-30">
+                                                    <span class="u-icon-v3 g-bg-primary g-color-white g-pull-50x-up g-rounded-5 g-mb-0">
+                                                        <i class="icon-education-087 u-line-icon-pro"></i>
+                                                    </span>
+                                                    <h3 class="h5 g-color-black g-mt-minus-10 g-mb-10">Modern Design</h3>
+                                                    <p class="g-color-gray-dark-v4 g-mb-10">I am alone, and feel the charm of existence in this spot, which was created ...</p>
+                                                    <a class="g-font-weight-600 g-font-size-12 g-text-underline--none--hover text-uppercase" href="#">Read More</a>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 g-mt-30 g-mb-30">
+                                                <div class="u-shadow-v19 g-bg-white text-center g-rounded-5 g-px-30 g-pb-30">
+                                                    <span class="u-icon-v3 g-bg-primary g-color-white g-pull-50x-up g-rounded-5 g-mb-0">
+                                                        <i class="icon-finance-009 u-line-icon-pro"></i>
+                                                    </span>
+                                                    <h3 class="h5 g-color-black g-mt-minus-10 g-mb-10">Fully Responsive</h3>
+                                                    <p class="g-color-gray-dark-v4 g-mb-10">I am alone, and feel the charm of existence in this spot, which was created ...</p>
+                                                    <a class="g-font-weight-600 g-font-size-12 g-text-underline--none--hover text-uppercase" href="#">Read More</a>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 g-mt-30 g-mb-30">
+                                                <div class="u-shadow-v19 g-bg-white text-center g-rounded-5 g-px-30 g-pb-30">
+                                                    <span class="u-icon-v3 g-bg-primary g-color-white g-pull-50x-up g-rounded-5 g-mb-0">
+                                                        <i class="icon-finance-256 u-line-icon-pro"></i>
+                                                    </span>
+                                                    <h3 class="h5 g-color-black g-mt-minus-10 g-mb-10">Friendly Support</h3>
+                                                    <p class="g-color-gray-dark-v4 g-mb-10">I am alone, and feel the charm of existence in this spot, which was created ...</p>
+                                                    <a class="g-font-weight-600 g-font-size-12 g-text-underline--none--hover text-uppercase" href="#">Read More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <!-- End Icons Blocks -->
+
+
+                                <!-- Start About Content -->
+                                <section class="container g-pt-75 g-pb-30">
+                                    <div class="row justify-content-center g-mb-20">
+                                        <div class="col-lg-7">
+                                            <!-- Start Heading -->
+                                            <div class="text-center">
+                                                <h2 class="h3 g-color-black text-uppercase g-mt-minus-5 mb-2">What we are doing</h2>
+                                                <div class="d-inline-block g-width-35 g-height-2 g-bg-primary mb-2"></div>
+                                                <p class="lead mb-0">I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend.</p>
+                                            </div>
+                                            <!-- End Heading -->
+                                        </div>
+                                    </div>
+                                    <div class="row g-mb-30">
+                                        <div class="col-lg-6 g-mb-30">
+                                            <div class="g-mb-20">
+                                                <p class="g-mb-0">I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I am alone, and feel the charm of existence in this spot.</p>
+                                                <p>I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I am alone, and feel the charm of existence in this spot ...</p>
+                                            </div>
+                                            <a class="btn btn-md u-btn-outline-black g-font-size-default rounded-0 g-py-10 mr-2" href="#">Explore More</a>
+                                            <a class="btn btn-md u-btn-primary g-font-size-default rounded-0 g-py-10" href="https://www.templatemonster.com/authors/gworld">Purchase Now</a>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <!-- Start Vertical Progress Bar -->
+                                                <div class="col-sm-3 text-center g-mb-20 g-mb-2--sm">
+                                                    <div class="js-vr-progress-bar u-progress-bar-vertical-v1 g-bg-gray-light-v4 g-mb-10">
+                                                        <div class="js-vr-progress-bar-indicator g-bg-primary g-height-150"></div>
+                                                    </div>
+                                                    <div class="g-color-black g-font-size-13 mb-1">75%</div>
+                                                    <h4 class="g-color-black g-font-size-18 text-uppercase">Design</h4>
+                                                </div>
+                                                <!-- End Vertical Progress Bar -->
+                                                <!-- Start Vertical Progress Bar -->
+                                                <div class="col-sm-3 text-center g-mb-20 g-mb-2--sm">
+                                                    <div class="js-vr-progress-bar u-progress-bar-vertical-v1 g-bg-gray-light-v4 g-mb-10">
+                                                        <div class="js-vr-progress-bar-indicator g-bg-primary g-height-120"></div>
+                                                    </div>
+                                                    <div class="g-color-black g-font-size-13 mb-1">60%</div>
+                                                    <h4 class="g-color-black g-font-size-18 text-uppercase">Bootstrap</h4>
+                                                </div>
+                                                <!-- End Vertical Progress Bar -->
+                                                <!-- Start Vertical Progress Bar -->
+                                                <div class="col-sm-3 text-center g-mb-20 g-mb-2--sm">
+                                                    <div class="js-vr-progress-bar u-progress-bar-vertical-v1 g-bg-gray-light-v4 g-mb-10">
+                                                        <div class="js-vr-progress-bar-indicator g-bg-primary g-height-160"></div>
+                                                    </div>
+                                                    <div class="g-color-black g-font-size-13 mb-1">80%</div>
+                                                    <h4 class="g-color-black g-font-size-18 text-uppercase">WordPress</h4>
+                                                </div>
+                                                <!-- End Vertical Progress Bar -->
+                                                <!-- Start Vertical Progress Bar -->
+                                                <div class="col-sm-3 text-center g-mb-20 g-mb-2--sm">
+                                                    <div class="js-vr-progress-bar u-progress-bar-vertical-v1 g-bg-gray-light-v4 g-mb-10">
+                                                        <div class="js-vr-progress-bar-indicator g-bg-primary g-height-100"></div>
+                                                    </div>
+                                                    <div class="g-color-black g-font-size-13 mb-1">50%</div>
+                                                    <h4 class="g-color-black g-font-size-18 text-uppercase">Laravel</h4>
+                                                </div>
+                                                <!-- End Vertical Progress Bar -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <!-- End About Content -->
+
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <h4 class="h6 g-mb-5">JavaScript - 80%</h4>
-                        <div class="js-hr-progress-bar progress rounded-0 g-height-4 mb-5">
-                            <div class="js-hr-progress-bar-indicator progress-bar u-progress-bar-width-80x" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div id="accordion" class="u-accordion u-accordion-color-primary" role="tablist" aria-multiselectable="true">
+                    <div class="card g-brd-none rounded g-mb-20">
+                        <div id="accordion-heading-03" class="g-pa-0" role="tab">
+                            <h5 class="mb-0">
+                                <a class="d-flex justify-content-between u-shadow-v19 g-color-main g-text-underline--none--hover rounded g-px-30 g-py-20 collapsed" href="#accordion-body-03" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="accordion-body-03">
+                                    Professional - Plan for business
+                                    <span class="u-accordion__control-icon g-color-primary">
+                                        <i class="fa fa-angle-down"></i>
+                                        <i class="fa fa-angle-up"></i>
+                                    </span>
+                                </a>
+                            </h5>
                         </div>
-                        <h4 class="h6 g-mb-5">PHP Development - 60%</h4>
-                        <div class="js-hr-progress-bar progress rounded-0 g-height-4 mb-5">
-                            <div class="js-hr-progress-bar-indicator progress-bar u-progress-bar-width-60x" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div id="accordion-body-03" class="collapse" role="tabpanel" aria-labelledby="accordion-heading-03" data-parent="#accordion">
+                            <div class="u-accordion__body g-color-gray-dark-v4 g-pa-30">
+                                <!-- Start Profile -->
+                                <section class="g-pt-75 g-pb-45">
+                                    <div class="container">
+                                        <figure class="row">
+                                            <div class="col-lg-4 g-mb-30">
+                                                <img class="w-100" src="assets/img-temp/400x450/img2.jpg" alt="Gravity">
+                                            </div>
+                                            <div class="col-lg-8 g-pt-20" style="padding: 0px 50px 0px 0px;">
+                                                <div class="d-flex justify-content-between g-mb-10">
+                                                    <div class="g-mb-20">
+                                                        <h4 class="h5 g-mb-5">Maria Brown</h4>
+                                                        <em class="d-block g-font-style-normal g-font-size-default text-uppercase g-color-primary">Technical Director</em>
+                                                    </div>
+                                                    <ul class="list-inline">
+                                                        <li class="list-inline-item g-mx-2">
+                                                            <a class="u-icon-v3 u-icon-size--xs g-color-gray-light-v1 g-bg-gray-light-v5 g-color-white--hover g-bg-primary--hover rounded-circle" href="#">
+                                                                <i class="fa fa-facebook"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-inline-item g-mx-2">
+                                                            <a class="u-icon-v3 u-icon-size--xs g-color-gray-light-v1 g-bg-gray-light-v5 g-color-white--hover g-bg-primary--hover rounded-circle" href="#">
+                                                                <i class="fa fa-twitter"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-inline-item g-mx-2">
+                                                            <a class="u-icon-v3 u-icon-size--xs g-color-gray-light-v1 g-bg-gray-light-v5 g-color-white--hover g-bg-primary--hover rounded-circle" href="#">
+                                                                <i class="fa fa-linkedin"></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="g-mb-30">
+                                                    <p>I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.</p>
+                                                    <p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents, which was created for the bliss of souls like mine.</p>
+                                                    <p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents, which was created for the bliss of souls like mine ...</p>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <h4 class="h6 g-mb-5">Web Design - 80%</h4>
+                                                        <div class="js-hr-progress-bar progress rounded-0 g-height-4 mb-5">
+                                                            <div class="js-hr-progress-bar-indicator progress-bar u-progress-bar-width-80x" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                        <h4 class="h6 g-mb-5">WordPress Codding - 70%</h4>
+                                                        <div class="js-hr-progress-bar progress rounded-0 g-height-4 mb-5">
+                                                            <div class="js-hr-progress-bar-indicator progress-bar u-progress-bar-width-70x" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <h4 class="h6 g-mb-5">JavaScript - 80%</h4>
+                                                        <div class="js-hr-progress-bar progress rounded-0 g-height-4 mb-5">
+                                                            <div class="js-hr-progress-bar-indicator progress-bar u-progress-bar-width-80x" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                        <h4 class="h6 g-mb-5">PHP Development - 60%</h4>
+                                                        <div class="js-hr-progress-bar progress rounded-0 g-height-4 mb-5">
+                                                            <div class="js-hr-progress-bar-indicator progress-bar u-progress-bar-width-60x" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </figure>
+                                    </div>
+                                </section>
+                                <!-- End Profile -->
+
+
+
+
+                                <!-- Start Icons Blocks -->
+                                <section id="content" class="g-bg-secondary g-pt-75 g-pb-45">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-4 g-mt-30 g-mb-30">
+                                                <div class="u-shadow-v19 g-bg-white text-center g-rounded-5 g-px-30 g-pb-30">
+                                                    <span class="u-icon-v3 g-bg-primary g-color-white g-pull-50x-up g-rounded-5 g-mb-0">
+                                                        <i class="icon-education-087 u-line-icon-pro"></i>
+                                                    </span>
+                                                    <h3 class="h5 g-color-black g-mt-minus-10 g-mb-10">Modern Design</h3>
+                                                    <p class="g-color-gray-dark-v4 g-mb-10">I am alone, and feel the charm of existence in this spot, which was created ...</p>
+                                                    <a class="g-font-weight-600 g-font-size-12 g-text-underline--none--hover text-uppercase" href="#">Read More</a>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 g-mt-30 g-mb-30">
+                                                <div class="u-shadow-v19 g-bg-white text-center g-rounded-5 g-px-30 g-pb-30">
+                                                    <span class="u-icon-v3 g-bg-primary g-color-white g-pull-50x-up g-rounded-5 g-mb-0">
+                                                        <i class="icon-finance-009 u-line-icon-pro"></i>
+                                                    </span>
+                                                    <h3 class="h5 g-color-black g-mt-minus-10 g-mb-10">Fully Responsive</h3>
+                                                    <p class="g-color-gray-dark-v4 g-mb-10">I am alone, and feel the charm of existence in this spot, which was created ...</p>
+                                                    <a class="g-font-weight-600 g-font-size-12 g-text-underline--none--hover text-uppercase" href="#">Read More</a>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 g-mt-30 g-mb-30">
+                                                <div class="u-shadow-v19 g-bg-white text-center g-rounded-5 g-px-30 g-pb-30">
+                                                    <span class="u-icon-v3 g-bg-primary g-color-white g-pull-50x-up g-rounded-5 g-mb-0">
+                                                        <i class="icon-finance-256 u-line-icon-pro"></i>
+                                                    </span>
+                                                    <h3 class="h5 g-color-black g-mt-minus-10 g-mb-10">Friendly Support</h3>
+                                                    <p class="g-color-gray-dark-v4 g-mb-10">I am alone, and feel the charm of existence in this spot, which was created ...</p>
+                                                    <a class="g-font-weight-600 g-font-size-12 g-text-underline--none--hover text-uppercase" href="#">Read More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <!-- End Icons Blocks -->
+
+
+                                <!-- Start About Content -->
+                                <section class="container g-pt-75 g-pb-30">
+                                    <div class="row justify-content-center g-mb-20">
+                                        <div class="col-lg-7">
+                                            <!-- Start Heading -->
+                                            <div class="text-center">
+                                                <h2 class="h3 g-color-black text-uppercase g-mt-minus-5 mb-2">What we are doing</h2>
+                                                <div class="d-inline-block g-width-35 g-height-2 g-bg-primary mb-2"></div>
+                                                <p class="lead mb-0">I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend.</p>
+                                            </div>
+                                            <!-- End Heading -->
+                                        </div>
+                                    </div>
+                                    <div class="row g-mb-30">
+                                        <div class="col-lg-6 g-mb-30">
+                                            <div class="g-mb-20">
+                                                <p class="g-mb-0">I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I am alone, and feel the charm of existence in this spot.</p>
+                                                <p>I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I am alone, and feel the charm of existence in this spot ...</p>
+                                            </div>
+                                            <a class="btn btn-md u-btn-outline-black g-font-size-default rounded-0 g-py-10 mr-2" href="#">Explore More</a>
+                                            <a class="btn btn-md u-btn-primary g-font-size-default rounded-0 g-py-10" href="https://www.templatemonster.com/authors/gworld">Purchase Now</a>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <!-- Start Vertical Progress Bar -->
+                                                <div class="col-sm-3 text-center g-mb-20 g-mb-2--sm">
+                                                    <div class="js-vr-progress-bar u-progress-bar-vertical-v1 g-bg-gray-light-v4 g-mb-10">
+                                                        <div class="js-vr-progress-bar-indicator g-bg-primary g-height-150"></div>
+                                                    </div>
+                                                    <div class="g-color-black g-font-size-13 mb-1">75%</div>
+                                                    <h4 class="g-color-black g-font-size-18 text-uppercase">Design</h4>
+                                                </div>
+                                                <!-- End Vertical Progress Bar -->
+                                                <!-- Start Vertical Progress Bar -->
+                                                <div class="col-sm-3 text-center g-mb-20 g-mb-2--sm">
+                                                    <div class="js-vr-progress-bar u-progress-bar-vertical-v1 g-bg-gray-light-v4 g-mb-10">
+                                                        <div class="js-vr-progress-bar-indicator g-bg-primary g-height-120"></div>
+                                                    </div>
+                                                    <div class="g-color-black g-font-size-13 mb-1">60%</div>
+                                                    <h4 class="g-color-black g-font-size-18 text-uppercase">Bootstrap</h4>
+                                                </div>
+                                                <!-- End Vertical Progress Bar -->
+                                                <!-- Start Vertical Progress Bar -->
+                                                <div class="col-sm-3 text-center g-mb-20 g-mb-2--sm">
+                                                    <div class="js-vr-progress-bar u-progress-bar-vertical-v1 g-bg-gray-light-v4 g-mb-10">
+                                                        <div class="js-vr-progress-bar-indicator g-bg-primary g-height-160"></div>
+                                                    </div>
+                                                    <div class="g-color-black g-font-size-13 mb-1">80%</div>
+                                                    <h4 class="g-color-black g-font-size-18 text-uppercase">WordPress</h4>
+                                                </div>
+                                                <!-- End Vertical Progress Bar -->
+                                                <!-- Start Vertical Progress Bar -->
+                                                <div class="col-sm-3 text-center g-mb-20 g-mb-2--sm">
+                                                    <div class="js-vr-progress-bar u-progress-bar-vertical-v1 g-bg-gray-light-v4 g-mb-10">
+                                                        <div class="js-vr-progress-bar-indicator g-bg-primary g-height-100"></div>
+                                                    </div>
+                                                    <div class="g-color-black g-font-size-13 mb-1">50%</div>
+                                                    <h4 class="g-color-black g-font-size-18 text-uppercase">Laravel</h4>
+                                                </div>
+                                                <!-- End Vertical Progress Bar -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <!-- End About Content -->
+
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </figure>
-    </div>
-</section>
-<!-- End Profile -->
-
-
-
-
-<!-- Start Icons Blocks -->
-<section id="content" class="g-bg-secondary g-pt-75 g-pb-45">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 g-mt-30 g-mb-30">
-                <div class="u-shadow-v19 g-bg-white text-center g-rounded-5 g-px-30 g-pb-30">
-                    <span class="u-icon-v3 g-bg-primary g-color-white g-pull-50x-up g-rounded-5 g-mb-0">
-                        <i class="icon-education-087 u-line-icon-pro"></i>
-                    </span>
-                    <h3 class="h5 g-color-black g-mt-minus-10 g-mb-10">Modern Design</h3>
-                    <p class="g-color-gray-dark-v4 g-mb-10">I am alone, and feel the charm of existence in this spot, which was created ...</p>
-                    <a class="g-font-weight-600 g-font-size-12 g-text-underline--none--hover text-uppercase" href="#">Read More</a>
-                </div>
-            </div>
-            <div class="col-lg-4 g-mt-30 g-mb-30">
-                <div class="u-shadow-v19 g-bg-white text-center g-rounded-5 g-px-30 g-pb-30">
-                    <span class="u-icon-v3 g-bg-primary g-color-white g-pull-50x-up g-rounded-5 g-mb-0">
-                        <i class="icon-finance-009 u-line-icon-pro"></i>
-                    </span>
-                    <h3 class="h5 g-color-black g-mt-minus-10 g-mb-10">Fully Responsive</h3>
-                    <p class="g-color-gray-dark-v4 g-mb-10">I am alone, and feel the charm of existence in this spot, which was created ...</p>
-                    <a class="g-font-weight-600 g-font-size-12 g-text-underline--none--hover text-uppercase" href="#">Read More</a>
-                </div>
-            </div>
-            <div class="col-lg-4 g-mt-30 g-mb-30">
-                <div class="u-shadow-v19 g-bg-white text-center g-rounded-5 g-px-30 g-pb-30">
-                    <span class="u-icon-v3 g-bg-primary g-color-white g-pull-50x-up g-rounded-5 g-mb-0">
-                        <i class="icon-finance-256 u-line-icon-pro"></i>
-                    </span>
-                    <h3 class="h5 g-color-black g-mt-minus-10 g-mb-10">Friendly Support</h3>
-                    <p class="g-color-gray-dark-v4 g-mb-10">I am alone, and feel the charm of existence in this spot, which was created ...</p>
-                    <a class="g-font-weight-600 g-font-size-12 g-text-underline--none--hover text-uppercase" href="#">Read More</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- End Icons Blocks -->
 
-
-<!-- Start About Content -->
-<section class="container g-pt-75 g-pb-30">
-    <div class="row justify-content-center g-mb-20">
-        <div class="col-lg-7">
-            <!-- Start Heading -->
-            <div class="text-center">
-                <h2 class="h3 g-color-black text-uppercase g-mt-minus-5 mb-2">What we are doing</h2>
-                <div class="d-inline-block g-width-35 g-height-2 g-bg-primary mb-2"></div>
-                <p class="lead mb-0">I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend.</p>
-            </div>
-            <!-- End Heading -->
-        </div>
-    </div>
-    <div class="row g-mb-30">
-        <div class="col-lg-6 g-mb-30">
-            <div class="g-mb-20">
-                <p class="g-mb-0">I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I am alone, and feel the charm of existence in this spot.</p>
-                <p>I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I am alone, and feel the charm of existence in this spot ...</p>
-            </div>
-            <a class="btn btn-md u-btn-outline-black g-font-size-default rounded-0 g-py-10 mr-2" href="#">Explore More</a>
-            <a class="btn btn-md u-btn-primary g-font-size-default rounded-0 g-py-10" href="https://www.templatemonster.com/authors/gworld">Purchase Now</a>
-        </div>
-        <div class="col-lg-6">
-            <div class="row">
-                <!-- Start Vertical Progress Bar -->
-                <div class="col-sm-3 text-center g-mb-20 g-mb-2--sm">
-                    <div class="js-vr-progress-bar u-progress-bar-vertical-v1 g-bg-gray-light-v4 g-mb-10">
-                        <div class="js-vr-progress-bar-indicator g-bg-primary g-height-150"></div>
-                    </div>
-                    <div class="g-color-black g-font-size-13 mb-1">75%</div>
-                    <h4 class="g-color-black g-font-size-18 text-uppercase">Design</h4>
-                </div>
-                <!-- End Vertical Progress Bar -->
-                <!-- Start Vertical Progress Bar -->
-                <div class="col-sm-3 text-center g-mb-20 g-mb-2--sm">
-                    <div class="js-vr-progress-bar u-progress-bar-vertical-v1 g-bg-gray-light-v4 g-mb-10">
-                        <div class="js-vr-progress-bar-indicator g-bg-primary g-height-120"></div>
-                    </div>
-                    <div class="g-color-black g-font-size-13 mb-1">60%</div>
-                    <h4 class="g-color-black g-font-size-18 text-uppercase">Bootstrap</h4>
-                </div>
-                <!-- End Vertical Progress Bar -->
-                <!-- Start Vertical Progress Bar -->
-                <div class="col-sm-3 text-center g-mb-20 g-mb-2--sm">
-                    <div class="js-vr-progress-bar u-progress-bar-vertical-v1 g-bg-gray-light-v4 g-mb-10">
-                        <div class="js-vr-progress-bar-indicator g-bg-primary g-height-160"></div>
-                    </div>
-                    <div class="g-color-black g-font-size-13 mb-1">80%</div>
-                    <h4 class="g-color-black g-font-size-18 text-uppercase">WordPress</h4>
-                </div>
-                <!-- End Vertical Progress Bar -->
-                <!-- Start Vertical Progress Bar -->
-                <div class="col-sm-3 text-center g-mb-20 g-mb-2--sm">
-                    <div class="js-vr-progress-bar u-progress-bar-vertical-v1 g-bg-gray-light-v4 g-mb-10">
-                        <div class="js-vr-progress-bar-indicator g-bg-primary g-height-100"></div>
-                    </div>
-                    <div class="g-color-black g-font-size-13 mb-1">50%</div>
-                    <h4 class="g-color-black g-font-size-18 text-uppercase">Laravel</h4>
-                </div>
-                <!-- End Vertical Progress Bar -->
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End About Content -->
 
 
 <!-- Start Footer -->

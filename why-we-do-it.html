@@ -21,18 +21,39 @@
 </head>
 <body>
 <main>
-    <!-- Start Page Preloader -->
-    <div id="loading">
-        <div id="loading-center">
-            <div id="loading-center-absolute">
-                <div class="object" id="object_four"></div>
-                <div class="object" id="object_three"></div>
-                <div class="object" id="object_two"></div>
-                <div class="object" id="object_one"></div>
-            </div>
-        </div>
+    
+<!-- Start Page Preloader -->
+<div id="loading">
+    <div id="loading-center">
+        <video id="preloader-video" autoplay muted loop>
+            <source src="assets/preloader-animation-logo/page-loader.webm" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
     </div>
-    <!-- End Page Preloader -->
+</div>
+
+<script>
+    window.addEventListener('load', function() {
+        var loader = document.getElementById('loading');
+        var video = document.getElementById('preloader-video');
+        
+        // Listen for the video's "canplaythrough" event to ensure it is ready
+        video.addEventListener('canplaythrough', function() {
+            // Add a delay before starting to fade out the loader (e.g., 3 seconds)
+            setTimeout(function() {
+                loader.style.transition = 'opacity 0.5s ease';
+                loader.style.opacity = 0;
+
+                // After the fade-out, completely hide the loader
+                setTimeout(function() {
+                    loader.style.display = 'none';
+                }, 3500); // Wait for the fade-out transition before removing the preloader
+            }, 3000); // Prolong the animation by 3 seconds (adjust as needed)
+        });
+    });
+</script>
+<!-- End Page Preloader -->
+
 <!-- Start Header -->
 <header id="js-header" class="u-header u-header--sticky-top u-header--toggle-section u-header--change-appearance dark-header" data-header-fix-moment="300">
     <div class="u-header__section u-header__section--dark g-bg-black g-transition-0_3 g-py-10" data-header-fix-moment-exclude="g-py-10" data-header-fix-moment-classes="u-shadow-v18 g-py-0">
@@ -62,7 +83,7 @@
                             <a href="#" data-target="#aboutus" class="nav-link px-0">About Us</a>
                         </li>
                         <li class="nav-item g-mx-15--lg">
-                            <a href="pages-services-1.html" data-target="#services" class="nav-link px-0">Services</a>
+                            <a href="services-page.html" data-target="#services" class="nav-link px-0">Services</a>
                         </li>
                         <li class="nav-item g-mx-15--lg">
                             <a href="how-we-do-it.html" data-target="#projects" class="nav-link px-0">How we do it</a>
@@ -73,14 +94,14 @@
                         <li class="nav-item g-mx-15--lg">
                             <a href="upcoming-projects.html" data-target="#statistics" class="nav-link px-0">Upcoming Projects</a>
                         </li>
-                        <!-- <li class="nav-item g-mx-15--lg">
-                            <a href="#" data-target="#news" class="nav-link px-0">News</a>
-                        </li> -->
+                        <li class="nav-item g-mx-15--lg">
+                            <a href="login-page.html" data-target="#news" class="nav-link px-0">Login</a>
+                        </li>
                     </ul>
                 </div>
                 <!-- End Navigation -->
                 <div class="d-inline-block g-hidden-md-down g-pos-rel g-valign-middle g-pl-15">
-                    <a class="btn u-btn-outline-white g-font-size-13 text-uppercase g-py-10 g-px-15" href="https://www.templatemonster.com/authors/gworld" >Buy now</a>
+                    <a class="btn u-btn-outline-white g-font-size-13 text-uppercase g-py-10 g-px-15" href="https://www.templatemonster.com/authors/gworld" >Invest now</a>
                 </div>
             </div>
         </nav>
@@ -88,8 +109,37 @@
 </header>
 <!-- End Header -->
 
+<!-- Start Page Title -->
+<section class="dzsparallaxer auto-init height-is-based-on-content use-loading mode-scroll loaded dzsprx-readyall" data-options="{direction: 'reverse', settings_mode_oneelement_max_offset: '150'}">
+    <!-- Start Parallax Image -->
+    <div class="g-page-title-parallax divimage dzsparallaxer--target w-100 g-bg-repeat g-bg-gray-light-v4"></div>
+    <!-- End Parallax Image -->
+    <div class="container g-z-index-1 g-py-50 g-mt-75">
+        <h1 class="g-font-weight-300 g-letter-spacing-1 g-mb-2">Why we do it</h1>
+        <div class="lead g-font-weight-400 g-line-height-2 g-letter-spacing-0_5">
+            <p class="mb-0 g-font-size-16">Use our unique & multi usable Elements</p>
+            <!-- Start Breadcrumbs -->
+            <ul class="u-list-inline g-font-size-16">
+                <li class="list-inline-item g-mr-7">
+                    <a class="u-link-v5 g-color-main" href="index.html">Home</a>
+                    <i class="fa fa-angle-right g-ml-7"></i>
+                </li>
+                <!-- <li class="list-inline-item g-mr-7">
+                    <a class="u-link-v5 g-color-main" href="pages-services-1.html">Services</a>
+                    <i class="fa fa-angle-right g-ml-7"></i>
+                </li> -->
+                <li class="list-inline-item g-color-primary">
+                    <span>Why we do it</span>
+                </li>
+            </ul>
+            <!-- End Breadcrumbs -->
+        </div>
+    </div>
+</section>
+<!-- End Page Title -->
+
 <!-- Start Our Services -->
-<section id="services" class="g-bg-secondary g-pt-175 g-pb-45">
+<section id="services" class="g-bg-secondary g-pt-50 g-pb-45">
     <div class="container">
         <header class="text-center g-width-auto mx-auto g-mt-minus-10 g-mb-25">
             <div class="u-heading-v6-2 text-center text-uppercase g-mb-0">
@@ -98,7 +148,7 @@
             </div>
             <p class="lead">I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents ...</p>
         </header>
-        <div class="row">
+        <div class="row-align">
             <div class="col-lg-6 g-mb-30">
                 <div class="u-shadow-v21 g-bg-white rounded g-pa-30">
                     <div class="media g-mb-15">
@@ -132,7 +182,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row-align">
             <div class="col-lg-6 g-mb-30">
                 <div class="u-shadow-v21 g-bg-white rounded g-pa-30">
                     <div class="media g-mb-15">
@@ -166,7 +216,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row-align">
             <div class="col-lg-6 g-mb-30">
                 <div class="u-shadow-v21 g-bg-white rounded g-pa-30">
                     <div class="media g-mb-15">
@@ -199,6 +249,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row-align">
             <div class="col-lg-6 g-mb-30">
                 <div class="u-shadow-v21 g-bg-white rounded g-pa-30">
                     <div class="media g-mb-15">
@@ -214,7 +266,8 @@
                         </div>
                     </div>
                 </div>
-            </div>            <div class="col-lg-6 g-mb-30">
+            </div>            
+            <div class="col-lg-6 g-mb-30">
                 <div class="u-shadow-v21 g-bg-white rounded g-pa-30">
                     <div class="media g-mb-15">
                         <div class="d-flex mr-4">
@@ -247,35 +300,35 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-15">
-                <div class="row justify-content-center">
+                <div class="row-align">
                     <div class="col-lg-4">
                         <ul class="nav flex-column u-nav-v1-1 u-nav-primary" role="tablist" data-target="nav-1-1-primary-ver" data-tabs-mobile-type="slide-up-down" data-btn-classes="btn btn-md btn-block rounded-0 u-btn-outline-primary g-mb-20">
                             <li class="nav-item">
-                                <a class="nav-link active" data-toggle="tab" href="#nav-1-1-primary-ver--1" role="tab">01.   Historical High Returns</a>
+                                <a class="nav-link active text-uppercase" data-toggle="tab" href="#nav-1-1-primary-ver--1" role="tab">   Historical High Returns</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#nav-1-1-primary-ver--2" role="tab">02.   Deal -By-Deal Control</a>
+                                <a class="nav-link text-uppercase" data-toggle="tab" href="#nav-1-1-primary-ver--2" role="tab">   Deal -By-Deal Control</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#nav-1-1-primary-ver--3" role="tab">03.   Flexible Terms</a>
+                                <a class="nav-link text-uppercase" data-toggle="tab" href="#nav-1-1-primary-ver--3" role="tab">   Flexible Terms</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#nav-1-1-primary-ver--4" role="tab">04.   Low Minimum Investment</a>
+                                <a class="nav-link text-uppercase" data-toggle="tab" href="#nav-1-1-primary-ver--4" role="tab">   Low Minimum Investment</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#nav-1-1-primary-ver--5" role="tab">05.   Valuable Deals</a>
+                                <a class="nav-link text-uppercase" data-toggle="tab" href="#nav-1-1-primary-ver--5" role="tab">   Valuable Deals</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#nav-1-1-primary-ver--6" role="tab">06.   Experiences Professionals</a>
+                                <a class="nav-link text-uppercase" data-toggle="tab" href="#nav-1-1-primary-ver--6" role="tab">   Experiences Professionals</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#nav-1-1-primary-ver--7" role="tab">07.   Transparency</a>
+                                <a class="nav-link text-uppercase" data-toggle="tab" href="#nav-1-1-primary-ver--7" role="tab">   Transparency</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#nav-1-1-primary-ver--8" role="tab">08.   Easy-To-Use Platform</a>
+                                <a class="nav-link text-uppercase" data-toggle="tab" href="#nav-1-1-primary-ver--8" role="tab">   Easy-To-Use Platform</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#nav-1-1-primary-ver--9" role="tab">09.   100% Profitable Track Record</a>
+                                <a class="nav-link text-uppercase" data-toggle="tab" href="#nav-1-1-primary-ver--9" role="tab">   100% Profitable Track Record</a>
                             </li>
                         </ul>
                     </div>
@@ -490,14 +543,14 @@
             </div>
         </header>
     </div>
-    <div class="row no-gutters-1">
+    <div class="row-align-2">
         <div class="col-lg-4 u-bg-overlay g-bg-img-hero g-bg-icons-aspiration-home-1 g-bg-cyan-opacity-0_9--after g-color-white text-center g-pa-75">
             <div class="u-bg-overlay__inner">
                 <span class="u-icon-v2 u-icon-size--lg u-shadow-v24 rounded-circle g-mb-25">
                     <i class="icon-finance-226 u-line-icon-pro"></i>
                 </span>
                 <h3 class="h5 text-uppercase g-font-weight-600 g-mb-15">Comprehensive Solutions</h3>
-                <p class="g-font-size-16 g-mb-20">We offer end-to-end real estate development services, handling every aspect of a project from inception to completion. This holistic approach not only makes us agile, efficient and high-yielding but also ensures seamless execution and peace of mind for our clients, who benefit from a single point of contact throughout the entire process.</p>
+                <p class="g-font-size-16 g-mb-20">We offer end-to-end real estate development services, handling every aspect of a project from inception to completion. This holistic approach not only makes (deleted text)</p>
                 <!-- <a class="btn u-shadow-v21 g-bg-white g-color-cyan g-color-white--hover g-bg-white-opacity-0_4--hover g-font-size-12 text-uppercase g-font-weight-600 g-rounded-50 g-py-12 g-px-20" href="#">Learn More</a> -->
             </div>
         </div>
@@ -507,7 +560,7 @@
                     <i class="icon-finance-196 u-line-icon-pro"></i>
                 </span>
                 <h3 class="h5 text-uppercase g-font-weight-600 g-mb-15">Sophisticated Designs</h3>
-                <p class="g-font-size-16 g-mb-20">Our in-house team of architects and designers specializes in creating sophisticated, practical and elevated yet cost conscious and practical designs that redefine excellence in the industry. We go above and beyond to deliver the most optimal results at the best cost.</p>
+                <p class="g-font-size-16 g-mb-20">Our in-house team of architects and designers specializes in creating sophisticated, practical and elevated yet cost conscious and practical designs that redefine (deleted text)</p>
                 <!-- <a class="btn u-shadow-v21 g-bg-white g-color-purple g-color-white--hover g-bg-white-opacity-0_4--hover g-font-size-12 text-uppercase g-font-weight-600 g-rounded-50 g-py-12 g-px-20" href="#">Check It Now</a> -->
             </div>
         </div>
@@ -517,7 +570,7 @@
                     <i class="icon-finance-147 u-line-icon-pro"></i>
                 </span>
                 <h3 class="h5 text-uppercase g-font-weight-600 g-mb-15">Adaptability and Innovation</h3>
-                <p class="g-font-size-16 g-mb-20">With all services conducted in-house and a commitment to full project ownership, we offer unmatched adaptability and flexibility. Being able to adapt to changing market dynamics and innovate continuously while providing our clients with a competitive edge.</p>
+                <p class="g-font-size-16 g-mb-20">With all services conducted in-house and a commitment to full project ownership, we offer unmatched adaptability and flexibility. Being able to adapt to changing market  (deleted text)</p>
                 <!-- <a class="btn u-shadow-v21 g-bg-white g-color-teal g-color-white--hover g-bg-white-opacity-0_4--hover g-font-size-12 text-uppercase g-font-weight-600 g-rounded-50 g-py-12 g-px-20" href="#">Discover More</a> -->
             </div>
         </div>
@@ -527,7 +580,7 @@
                     <i class="icon-finance-226 u-line-icon-pro"></i>
                 </span>
                 <h3 class="h5 text-uppercase g-font-weight-600 g-mb-15">Valuable Experience?</h3>
-                <p class="g-font-size-16 g-mb-20">With our established relationships with local lenders, we can get better terms and lower interest rates on our construction loan. Because we build multiple properties each year, we are also able to negotiate favorable discounts on labor and materials for the construction.</p>
+                <p class="g-font-size-16 g-mb-20">With oWith our established relationships with local lenders, we can get better terms and lower interest rates on our construction loan. Because we build multiple  (deleted text)</p>
                 <!-- <a class="btn u-shadow-v21 g-bg-white g-color-cyan g-color-white--hover g-bg-white-opacity-0_4--hover g-font-size-12 text-uppercase g-font-weight-600 g-rounded-50 g-py-12 g-px-20" href="#">Learn More</a> -->
             </div>
         </div>
@@ -559,7 +612,7 @@
                                 </a>
                             </h5>
                         </div>
-                        <div id="accordion-body-01" class="collapse" role="tabpanel" aria-labelledby="accordion-heading-01" data-parent="#accordion" style="">
+                        <div id="accordion-body-01" class="collapse" role="tabpanel" aria-labelledby="accordion-heading-01" data-parent="#accordion">
                             <div class="u-accordion__body g-color-gray-dark-v4 g-pa-30">
                                 I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I am alone, and feel the charm of existence in this spot. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.
                             </div>
