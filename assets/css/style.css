@@ -133,7 +133,7 @@
 /* ====================
 Test
 ========================== */
-#loading {
+/* #loading {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -150,8 +150,8 @@ Test
     transform: rotate(0deg);
     max-width: 100%;
     max-height: 100vh;
-    object-fit: contain;
-}
+    object-fit: center;
+} */
 
 
 
@@ -201,7 +201,7 @@ img {
     margin-right: 0px;
 }
 
-.row-align-2 {
+.row-align-2     {
     display: flex;
     justify-content: center;
     margin-left: 355px;
